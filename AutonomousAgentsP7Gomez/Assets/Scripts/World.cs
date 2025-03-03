@@ -4,6 +4,7 @@ using UnityEngine;
 
 public sealed class World
 {
+    //i still dont get how singletons work
     private static readonly World instance = new World();
     private static GameObject[] hidingSpots;
 
