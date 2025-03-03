@@ -167,20 +167,20 @@ public class Bot : MonoBehaviour
     {
         if (!coolDown)
         {
-            if (CanSeeTarget() && TargetCanSeeMe())
+            if (!CopNear())
+            {
+                Wander();
+                Debug.Log("Wander On");
+            }
+            else if (CanSeeTarget() && TargetCanSeeMe())
             {
                 CleverHide();
                 coolDown = true;
                 Invoke("BehaviourCoolDown", 5);
             }
-            else if (CopNear())
-            {
-                Pursue();
-            }
             else
             {
-                Wander();
-                Debug.Log("Wander On");
+                Pursue();
             }
         }
     }
